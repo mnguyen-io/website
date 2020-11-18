@@ -61,7 +61,7 @@ module Styles = {
       ),
       media(
         Theme.MediaQuery.desktop,
-        [width(small ? `rem(47.) : auto), marginLeft(`rem(9.5))],
+        [width(small ? `rem(47.) : auto), marginLeft(`rem(-24.))],
       ),
     ]);
 
@@ -120,6 +120,7 @@ let make =
       ~backgroundImg: Theme.backgroundImage,
     ) => {
   <div className={Styles.container(backgroundImg)}>
+  <Wrapped>
     <div className={Styles.quoteContainer(small)}>
       <p className=Styles.jumpQuote> {React.string({js|“|js})} </p>
       <p className=Styles.quote> {React.string(copy)} </p>
@@ -133,5 +134,6 @@ let make =
         </div>
       </div>
     </div>
+    </Wrapped>
   </div>;
 };

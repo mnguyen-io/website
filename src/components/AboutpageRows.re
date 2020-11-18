@@ -21,8 +21,9 @@ module Styles = {
         [
           position(`relative),
           flexDirection(`row),
-          maxWidth(`rem(96.)),
+          maxWidth(`rem(90.)),
           padding2(~h=`rem(9.5), ~v=`rem(8.)),
+          margin(`auto),
         ],
       ),
     ]);

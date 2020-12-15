@@ -25,7 +25,7 @@ let make =
       ~children,
       ~darkTheme=false,
       ~showFooter=true,
-      ~announcementCopy="Mina is growing fast!",
+      ~announcementCopy="Mina's Adversarial Testnet is coming!",
       ~announcementCTACopy="Sign up to be notified",
       ~announcementFormUrl=Constants.minaAdversarial,
     ) => {

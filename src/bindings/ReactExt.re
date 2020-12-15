@@ -101,7 +101,7 @@ let callIfRefEqualsMouseClick =
   |> Js.Nullable.toOption
   |> Option.iter(modalRef => {
        let modalObj = ReactDOMRe.domElementToObj(modalRef);
-       if (modalObj == ReactEvent.Mouse.target(e)) {
+       if (modalObj === ReactEvent.Mouse.target(e)) {
          cb();
        };
      });

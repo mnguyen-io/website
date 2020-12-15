@@ -23,7 +23,6 @@ let make =
       ~image="/static/img/mina_facebook_OG.jpg",
       ~route=?,
       ~children,
-      ~footerColor=Theme.Colors.white,
       ~darkTheme=false,
       ~showFooter=true,
       ~announcementCopy="Mina is growing fast!",

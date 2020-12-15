@@ -32,8 +32,33 @@ let make =
     ) => {
   let router = Next.Router.useRouter();
   let route = Option.value(route, ~default=router.route);
+  let pageRef = React.useRef(Js.Nullable.null);
 
-  <div className=Styles.main>
+  let (getStartedNavOpen, setGetStartedNavOpen) = React.useState(() => false);
+  let (isMobileNavOpen, setIsMobileNavOpen) = React.useState(() => false);
+
+  let switchGetStartedNavOpen = () => {
+    setGetStartedNavOpen(prevState => !prevState);
+  };
+
+  let switchMobileNavOpen = () => {
+    setIsMobileNavOpen(prevState => !prevState);
+  };
+
+  let handleNavGetStartedClick = e =>
+    if (getStartedNavOpen) {
+      pageRef->ReactExt.callIfRefContainsMouseClick(
+        e,
+        switchGetStartedNavOpen,
+      );
+    };
+
+  let handleNavMobileClick = e =>
+    if (isMobileNavOpen) {
+      pageRef->ReactExt.callIfRefContainsMouseClick(e, switchMobileNavOpen);
+    };
+
+  <div className=Styles.main ref={ReactDOMRe.Ref.domRef(pageRef)}>
     <Next.Head>
       <title> {React.string(title)} </title>
       <meta property="og:title" content=title />
@@ -75,8 +100,20 @@ let make =
       dark=darkTheme copy=announcementCTACopy url=announcementFormUrl>
       {React.string(announcementCopy)}
     </AnnouncementBanner>
-    <Nav dark=darkTheme />
-    <main> children </main>
+    <Nav
+      isMobileNavOpen
+      switchMobileNavOpen
+      getStartedNavOpen
+      switchGetStartedNavOpen
+      dark=darkTheme
+    />
+    <main
+      onClick={e => {
+        handleNavGetStartedClick(e);
+        handleNavMobileClick(e);
+      }}>
+      children
+    </main>
     <CookieWarning />
     {showFooter ? <Footer /> : React.null}
   </div>;

@@ -278,9 +278,10 @@ let make =
          ? <span id="close-nav"> <Icon kind=Icon.CloseMenu size=3. /> </span>
          : <span id="open-nav"> <Icon kind=Icon.BurgerMenu size=2. /> </span>}
     </label>
-    {if (width > Theme.MediaQuery.desktopBreakpoint) {
-       renderNav();
-     } else if (width < Theme.MediaQuery.desktopBreakpoint && isMobileNavOpen) {
+    /* Show nav if desktop or if mobile with the mobile nav open */
+    {if (width > Theme.MediaQuery.desktopBreakpoint
+         || width < Theme.MediaQuery.desktopBreakpoint
+         && isMobileNavOpen) {
        renderNav();
      } else {
        React.null;

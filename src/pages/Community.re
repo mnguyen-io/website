@@ -52,9 +52,10 @@ module Styles = {
         `url("/static/img/community-page/CommunityBackground.jpg"),
       ),
       backgroundSize(`cover),
-      paddingTop(`rem(4.)),
       overflow(`hidden),
       width(`percent(100.)),
+      paddingTop(`rem(2.)),
+      media(Theme.MediaQuery.notMobile, [paddingTop(`rem(12.))]),
     ]);
 
   let cultureBackground =

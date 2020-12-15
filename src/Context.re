@@ -1,3 +1,10 @@
+module HeaderNavCurrentItemContext = {
+  let context = React.createContext("");
+  let make = React.Context.provider(context);
+  let makeProps = ReactExt.makeProps;
+  let useCurrentItem = () => React.useContext(context);
+};
+
 module SideNavCurrentItemContext = {
   let context = React.createContext("");
   let make = React.Context.provider(context);

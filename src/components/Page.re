@@ -26,8 +26,8 @@ let make =
       ~darkTheme=false,
       ~showFooter=true,
       ~announcementCopy="Mina is growing fast!",
-      ~announcementCTACopy="Subscribe to stay updated",
-      ~announcementFormUrl=Constants.minaNewsletter,
+      ~announcementCTACopy="Sign up to be notified",
+      ~announcementFormUrl=Constants.minaAdversarial,
     ) => {
   let router = Next.Router.useRouter();
   let route = Option.value(route, ~default=router.route);

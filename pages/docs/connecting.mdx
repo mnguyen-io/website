@@ -48,7 +48,7 @@ Note: If you are using the Hetzner hosting provider, we are currently experienci
 Run the following command to start up a Mina node instance and connect to the live network:
 
 ```
-coda daemon --generate-genesis-proof true --peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt
+coda daemon --generate-genesis-proof true --peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt --generate-genesis-proof true
 ```
 
 The `-peer-list` argument specified above refer to the seed peer address - this is the initial peer we will connect to on the network. Since Mina is a [peer-to-peer](/docs/glossary#peer-to-peer) protocol, there is no single centralized server we rely on.
